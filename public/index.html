@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title-area">
+        <h1 class="fill">TraveLear</h1>
+        <h2>Cadastro de Hóteis</h2>
+      </div>
+      <main>
+        <div class="action-area">
+          <input type="text" placeholder="Nome" id="hotel-name" />
+          <input type="text" placeholder="Endereço" id="hotel-address" />
+          <input type="text" placeholder="Link da Imagem" id="hotel-img" />
+          <input type="text" placeholder="Telefone" id="hotel-telefone" />
+
+          <button type="button" id="action-btn">Cadastrar</button>
+        </div>
+        <div class="hotels-area" id="hotels-area"></div>
+      </main>
+    </div>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
