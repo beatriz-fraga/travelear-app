@@ -17,6 +17,6 @@ model Hotel {
   id       Int     @id @default(autoincrement())
   name     String
   address  String
-  img      String
+  img      String?
   telefone String?
 }

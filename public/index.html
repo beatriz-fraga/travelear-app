@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="pt_BR" ng-app="travelear-app">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,25 +13,65 @@
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <title>To Do List</title>
+    <title>Travelear List</title>
   </head>
-  <body>
+  <body ng-controller="travelear-controller">
     <div class="container">
       <div class="title-area">
-        <h1 class="fill">TraveLear</h1>
+        <h1 class="fill" ng-bind="title">TraveLear</h1>
         <h2>Cadastro de Hóteis</h2>
       </div>
       <main>
         <div class="action-area">
-          <input type="text" placeholder="Nome" id="hotel-name" />
-          <input type="text" placeholder="Endereço" id="hotel-address" />
-          <input type="text" placeholder="Link da Imagem" id="hotel-img" />
-          <input type="text" placeholder="Telefone" id="hotel-telefone" />
-
-          <button type="button" id="action-btn">Cadastrar</button>
+          <input
+            type="text"
+            placeholder="Nome"
+            id="hotel-name"
+            ng-model="hotelName"
+          />
+          <input
+            type="text"
+            placeholder="Endereço"
+            id="hotel-address"
+            ng-model="hotelAddress"
+          />
+          <input
+            type="text"
+            placeholder="Link da Imagem"
+            id="hotel-img"
+            ng-model="hotelImg"
+          />
+          <input
+            type="text"
+            placeholder="Telefone"
+            id="hotel-telefone"
+            ng-model="hotelTelephone"
+          />
+          <button type="button" id="action-btn" ng-click="addHotel()">
+            Cadastrar
+          </button>
         </div>
-        <div class="hotels-area" id="hotels-area"></div>
+        <div class="hotels-area" id="hotels-area">
+          <div class="hotel" ng-repeat="hotel in hotelList">
+            <img
+              src="{{hotel.img || 'https://cdn.pixabay.com/photo/2020/05/09/09/13/house-5148865_1280.jpg'}}"
+              alt="Hotel"
+            />
+            <div class="hotel-texts">
+              <h2>{{hotel.name}}</h2>
+              <p>{{hotel.address}}</p>
+              <p>{{hotel.telefone}}</p>
+            </div>
+            <button ng-click="deleteHotel(hotel.id)" class="delete-btn">
+              <i class="ri-delete-bin-6-line"></i>
+            </button>
+          </div>
+          <p class="no-hotels" ng-if="hotelList.lenght == 0">
+            Nenhuma tarefa cadastrada.
+          </p>
+        </div>
       </main>
     </div>
     <script src="./assets/js/main.js"></script>
