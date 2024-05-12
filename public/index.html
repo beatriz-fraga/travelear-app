@@ -55,18 +55,22 @@
         </div>
         <div class="hotels-area" id="hotels-area">
           <div class="hotel" ng-repeat="hotel in hotelList">
-            <img
-              src="{{hotel.img || 'https://cdn.pixabay.com/photo/2020/05/09/09/13/house-5148865_1280.jpg'}}"
-              alt="Hotel"
-            />
+            <div class="img-area">
+              <img
+                src="{{hotel.img || 'https://cdn.pixabay.com/photo/2020/05/09/09/13/house-5148865_1280.jpg'}}"
+                alt="Hotel"
+              />
+            </div>
             <div class="hotel-texts">
               <h2>{{hotel.name}}</h2>
               <p>{{hotel.address}}</p>
               <p>{{hotel.telefone}}</p>
             </div>
-            <button ng-click="deleteHotel(hotel.id)" class="delete-btn">
-              <i class="ri-delete-bin-6-line"></i>
-            </button>
+            <div class="delete-btn">
+              <button ng-click="deleteHotel(hotel.id)" class="delete-btn">
+                <i class="ri-delete-bin-6-line"></i>
+              </button>
+            </div>
           </div>
           <p class="no-hotels" ng-if="hotelList.lenght == 0">
             Nenhuma tarefa cadastrada.
